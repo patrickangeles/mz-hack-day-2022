@@ -40,6 +40,28 @@ This will continuously poll the topic, until you press `CTRL-C` to break out.
 docker compose exec redpanda rpk topic consume icao24_mapping
 ```
 
+You should see something like the following.
+```json
+{
+  "topic": "icao24_mapping",
+  "value": "{\"icao24\":\"4ba990\",\"manufacturericao\":\"AIRBUS\",\"manufacturername\":\"Airbus\",\"model\":\"Airbus A319 132\",\"typecode\":\"A319\",\"icaoaircrafttype\":\"L2J\",\"operator\":\"\",\"operatorcallsign\":\"TURKAIR\",\"operatoricao\":\"THY\",\"built\":\"\",\"categorydescription\":\"No ADS-B Emitter Category Information\"}",
+  "timestamp": 1644078989367,
+  "partition": 0,
+  "offset": 10130
+}
+{
+  "topic": "icao24_mapping",
+  "value": "{\"icao24\":\"a7e62d\",\"manufacturericao\":\"AIRBUS\",\"manufacturername\":\"Airbus\",\"model\":\"A320-232\",\"typecode\":\"A320\",\"icaoaircrafttype\":\"L2J\",\"operator\":\"Spirit Airlines\",\"operatorcallsign\":\"SPIRIT WINGS\",\"operatoricao\":\"NKS\",\"built\":\"2011-01-01\",\"categorydescription\":\"No ADS-B Emitter Category Information\"}",
+  "timestamp": 1644078989367,
+  "partition": 0,
+  "offset": 10131
+}
+```
+
+At this point, you know how to create a topic, and how to send and receive data.
+You can proceed to creating SOURCEs and VIEWs in dbt models, or you can check that
+your Redpanda integration works via the Materialize CLI.
+
 Fire up the Materialize CLI.
 
 ```bash
